@@ -1,0 +1,6 @@
+#contenet {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  border: 5px black solid;
+  height: 300px;
+}
