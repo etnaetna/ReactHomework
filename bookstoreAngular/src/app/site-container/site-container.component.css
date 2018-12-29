@@ -1,0 +1,10 @@
+#mainSiteContainer {
+  width: 1200px;
+  margin: auto;
+}
+
+#secondSiteContainer {
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  grid-column-gap: 10px;
+}
