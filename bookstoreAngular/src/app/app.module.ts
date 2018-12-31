@@ -9,6 +9,7 @@ import { FavouritesComponent } from './favourites/favourites.component';
 import { SiteContainerComponent } from './site-container/site-container.component';
 import { ContentComponent } from './content/content.component';
 import { BlogItemComponent } from './blog-item/blog-item.component';
+import { VoteComponent } from './vote/vote.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { BlogItemComponent } from './blog-item/blog-item.component';
     FavouritesComponent,
     SiteContainerComponent,
     ContentComponent,
-    BlogItemComponent
+    BlogItemComponent,
+    VoteComponent
   ],
   imports: [
     BrowserModule,
