@@ -10,6 +10,7 @@ import { SiteContainerComponent } from './site-container/site-container.componen
 import { ContentComponent } from './content/content.component';
 import { BlogItemComponent } from './blog-item/blog-item.component';
 import { VoteComponent } from './vote/vote.component';
+import { FavItmComponent } from './fav-itm/fav-itm.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { VoteComponent } from './vote/vote.component';
     SiteContainerComponent,
     ContentComponent,
     BlogItemComponent,
-    VoteComponent
+    VoteComponent,
+    FavItmComponent
   ],
   imports: [
     BrowserModule,

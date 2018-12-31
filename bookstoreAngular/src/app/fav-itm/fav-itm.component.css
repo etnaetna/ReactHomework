@@ -1,0 +1,16 @@
+.fav-itm {
+  display: flex;
+  border: 3px solid black;
+  margin: 5px;
+  height: 60px;
+  padding: 5px;
+  margin: auto;
+}
+
+img {
+  margin-right: 20px;
+}
+
+p {
+
+}

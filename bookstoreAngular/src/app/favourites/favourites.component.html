@@ -1,18 +1,4 @@
 <div id="favourites">
-  <p>Your favourite books:</p>
-  <div class="favourite">prva</div>
-  <div class="favourite">druga</div>
-  <div class="favourite">treca</div>
-  <div class="favourite">cetvrta</div>
-  <div class="favourite">peta</div>
-  <div class="favourite">prva</div>
-  <div class="favourite">druga</div>
-  <div class="favourite">treca</div>
-  <div class="favourite">cetvrta</div>
-  <div class="favourite">peta</div>
-  <div class="favourite">prva</div>
-  <div class="favourite">druga</div>
-  <div class="favourite">treca</div>
-  <div class="favourite">cetvrta</div>
-  <div class="favourite">peta</div>
+  <p (click)="this.sranje()">Your favourite books:</p>
+  <app-fav-itm *ngFor="let fav of favoriti" [imgSrc]=fav.imageSrc [title]=fav.title></app-fav-itm>
 </div>
