@@ -14,6 +14,14 @@ export class FavouritesServiceService {
 
   constructor() { }
 
+  addRemoveFromFavs(nekiObject: BlogItem) {
+    if (this.blogData.indexOf(nekiObject) === -1) {
+      this.addFavourites(nekiObject);
+    } else {
+      this.removeFavourites(nekiObject);
+    }
+  }
+
   addFavourites(nekiOBject: BlogItem) {
     if (this.blogData.length === 0) {
       this.blogData[0] = nekiOBject;

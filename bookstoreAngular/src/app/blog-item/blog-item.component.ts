@@ -19,13 +19,7 @@ export class BlogItemComponent implements OnInit {
   }
 
   addRemoveFav() {
-    if (this.isFav) {
-      this.removeFromFavs();
-      this.isFav = !this.isFav;
-    } else {
-      this.addToFavs();
-      this.isFav = !this.isFav;
-    }
+    this.favServ.addRemoveFromFavs(this.blogItemData);
   }
 
   addToFavs() {
