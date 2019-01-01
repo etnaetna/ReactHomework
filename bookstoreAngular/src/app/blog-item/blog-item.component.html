@@ -1,6 +1,8 @@
 <div class="clanak-mini">
   <div class="article-title">
-    {{blogItemData.title}}
+    <a routerLink="/details" (click)="this.setData()">
+      {{blogItemData.title}}
+    </a>
   </div>
   <div class="article-content">
     <div class="picPlaceholder"></div>

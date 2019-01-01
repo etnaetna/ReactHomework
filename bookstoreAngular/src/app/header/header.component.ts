@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContentProviderService } from './../content-provider.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private contentServ: ContentProviderService) { }
 
   ngOnInit() {
+  }
+
+  setFilter(userInput: any): void {
+    this.contentServ.setFilter(userInput);
   }
 
 }

@@ -1,20 +1,14 @@
 <div class="header">
   <div class="header-1">
-    <img
-      id="siteLogo"
-      src="../../assets/images/books.svg"
-      alt="Black and white books icon"
-      width="100"
-      height="100"
-    />
+    <img id="siteLogo" src="../../assets/images/books.svg" alt="Black and white books icon" width="100" height="100" />
     <div id="title">Books</div>
   </div>
 
   <div class="header-2">
     <div id="sectionTitle">Lista proizvoda</div>
     <div id="search">
-      <form action="METODA KOJA CE TRACITI KNJIGE">
-        <input type="text" name="fname" placeholder="Enter your book..." />
+      <form>
+        <input #box placeholder="Enter your book" (input)="this.setFilter(box.value)">
       </form>
     </div>
   </div>

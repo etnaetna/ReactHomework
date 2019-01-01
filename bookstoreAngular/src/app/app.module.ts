@@ -11,6 +11,8 @@ import { ContentComponent } from './content/content.component';
 import { BlogItemComponent } from './blog-item/blog-item.component';
 import { VoteComponent } from './vote/vote.component';
 import { FavItmComponent } from './fav-itm/fav-itm.component';
+import { BlogItemDetailsComponent } from './blog-item-details/blog-item-details.component';
+import { ReviewComponent } from './review/review.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { FavItmComponent } from './fav-itm/fav-itm.component';
     ContentComponent,
     BlogItemComponent,
     VoteComponent,
-    FavItmComponent
+    FavItmComponent,
+    BlogItemDetailsComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule,
