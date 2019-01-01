@@ -8,11 +8,11 @@
         {{this.blogItemData.content}}
       </div>
       <div class="article-vote">
-        <img id="siteLogo" src="./resources/starts.png" alt="Black and white books icon" width="120px" height="40px" />
+        <app-vote></app-vote>
       </div>
       <div class="article-add-to-favourites">
-        <img id="siteLogo" src="./resources/favorites-add-icon.png" alt="Black and white books icon" width="40px"
-          height="40px" />
+        <img id="siteLogo" src="./../../assets/images/favorites-add-icon.png" alt="Black and white books icon" width="40px"
+          height="40px" (click)="this.addRemoveFav()" />
       </div>
     </div>
   </div>

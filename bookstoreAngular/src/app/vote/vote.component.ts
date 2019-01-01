@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-vote',
@@ -7,6 +7,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 
 export class VoteComponent implements OnInit {
+  @Input() rating: number;
   noviGlas: Number = null;
   petBrojeva: Number[] = [1, 2, 3, 4, 5];
 
@@ -16,9 +17,9 @@ export class VoteComponent implements OnInit {
   ngOnInit() {
   }
 
-  refreshStars() {
-    const ratingBar = document.getElementsByClassName('zvjezdica');
-    console.log();
+  refreshStars(e) {
+
+    const ratingBar = e.target.children;
 
     for (let i = 0; i < ratingBar.length; i++) {
       if (i < this.noviGlas) {
@@ -30,7 +31,7 @@ export class VoteComponent implements OnInit {
   }
 
   onHover(e): void {
-    const id = e.target.getAttribute('data-star-id');;
+    const id = e.target.getAttribute('data-star-id');
 
     const ratingBar = e.target.parentElement.children;
 
@@ -44,8 +45,10 @@ export class VoteComponent implements OnInit {
   }
 
   getVote(e): void {
+    console.log('get vote');
     const starId = e.target.getAttribute('data-star-id');
     console.log(e.target.parentElement.children);
     this.noviGlas = starId;
+    console.log(this.noviGlas);
   }
 }
