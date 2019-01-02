@@ -11,11 +11,16 @@ import { TransferItemDataService } from '../transfer-item-data.service';
 export class VoteComponent implements OnInit {
   @Input() blogItemData: BlogItem;
   @ViewChild('ratingBar') ratingBar;
+  currTotalRating: number;
 
   constructor(private dataTrans: TransferItemDataService) {
   }
 
   ngOnInit() {
+
+    console.log("#############");
+    console.log(this.blogItemData);
+
     const ratingStars = this.ratingBar.nativeElement.children;
 
     for (let i = 0; i < ratingStars.length; i++) {
@@ -26,6 +31,10 @@ export class VoteComponent implements OnInit {
       }
     }
 
+    this.calculateTotalRating();
+
+    this.dataTrans.setItem(this.blogItemData);
+    console.log(this.currTotalRating);
   }
 
   refreshStars(e) {
@@ -56,7 +65,36 @@ export class VoteComponent implements OnInit {
 
   getVote(e): void {
     const starId = e.target.getAttribute('data-star-id');
+    this.blogItemData.lastVote = this.blogItemData.usrCurrVote;
     this.blogItemData.usrCurrVote = starId;
+    this.calculateTotalRating();
+
     this.dataTrans.setItem(this.blogItemData);
+  }
+
+  calculateTotalRating(): void {
+    if (this.blogItemData.usrCurrVote === 0) {
+      // this.currTotalRating = this.blogItemData.totalRating;
+      console.log("nemam sta prvi put uradit")
+    } else {
+      if (this.blogItemData.usrVoted) {
+        this.blogItemData.totalRating = parseFloat((((this.blogItemData.totalRating * this.blogItemData.voteCount - this.blogItemData.lastVote)
+          + parseInt(this.blogItemData.usrCurrVote.toString(), 10)) / this.blogItemData.voteCount).toFixed(2));
+
+      } else {
+        this.blogItemData.totalRating = parseFloat((((this.blogItemData.voteCount * this.blogItemData.totalRating) +
+          parseInt(this.blogItemData.usrCurrVote.toString(), 10)) /
+          (this.blogItemData.voteCount + 1)).toFixed(2));
+
+        this.blogItemData.usrVoted = true;
+        this.blogItemData.voteCount++;
+      }
+    }
+    console.log('current vote');
+    console.log(this.blogItemData.usrCurrVote);
+    console.log('last vote');
+    console.log(this.blogItemData.lastVote);
+    console.log('cijela osoba');
+    console.log(this.blogItemData.totalRating);
   }
 }

@@ -5,7 +5,9 @@ export class BlogItem {
   imageSrc: String;
   content: String;
   totalRating: number;
-  usrCurrVote: Number = 0;
+  usrCurrVote: number;
+  usrVoted: boolean;
+  lastVote: number;
   voteCount: number;
   reviews: Review[];
 }
