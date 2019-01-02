@@ -1,4 +1,6 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, ViewChild } from '@angular/core';
+import { BlogItem } from './../BlogItem';
+import { TransferItemDataService } from '../transfer-item-data.service';
 
 @Component({
   selector: 'app-vote',
@@ -7,19 +9,31 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 })
 
 export class VoteComponent implements OnInit {
-  @Input() rating: number;
-  usrCurrVote: Number = null;
+  @Input() blogItemData: BlogItem;
+  @ViewChild('zvjezdice') zvijezde;
 
-  constructor() { }
+  constructor(private dataTrans: TransferItemDataService) {
+  }
 
   ngOnInit() {
+    console.log('####################');
+    const ratingStars = this.zvijezde.nativeElement.children;
+
+    for (let i = 0; i < ratingStars.length; i++) {
+      if (i < this.blogItemData.usrCurrVote) {
+        ratingStars[i].classList.add('checked');
+      } else {
+        ratingStars[i].classList.remove('checked');
+      }
+    }
+
   }
 
   refreshStars(e) {
     const ratingBar = e.target.children;
 
     for (let i = 0; i < ratingBar.length; i++) {
-      if (i < this.usrCurrVote) {
+      if (i < this.blogItemData.usrCurrVote) {
         ratingBar[i].classList.add('checked');
       } else {
         ratingBar[i].classList.remove('checked');
@@ -43,6 +57,7 @@ export class VoteComponent implements OnInit {
 
   getVote(e): void {
     const starId = e.target.getAttribute('data-star-id');
-    this.usrCurrVote = starId;
+    this.blogItemData.usrCurrVote = starId;
+    this.dataTrans.setItem(this.blogItemData);
   }
 }

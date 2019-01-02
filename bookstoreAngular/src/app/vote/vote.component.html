@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<div id="rating-bar" (mouseleave)="this.refreshStars($event)">
+<div #zvjezdice id="rating-bar" (mouseleave)="this.refreshStars($event)">
   <span class="zvjezdica fa fa-star " [attr.data-star-id]="1" (mouseover)="this.onHover($event)" (click)="this.getVote($event)"></span>
   <span class="zvjezdica fa fa-star " [attr.data-star-id]="2" (mouseover)="this.onHover($event)" (click)="this.getVote($event)"></span>
   <span class="zvjezdica fa fa-star" [attr.data-star-id]="3" (mouseover)="this.onHover($event)" (click)="this.getVote($event)"></span>

@@ -10,7 +10,7 @@
       {{blogItemData.content}}
     </div>
     <div class="article-vote">
-      <app-vote></app-vote>
+      <app-vote [blogItemData]="this.blogItemData"></app-vote>
     </div>
     <div class="article-add-to-favourites">
       <img id="siteLogo" src={{blogItemData.imageSrc}} alt="Black and white books icon" width="40px" height="40px"
