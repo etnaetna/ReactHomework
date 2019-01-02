@@ -10,14 +10,13 @@ import { TransferItemDataService } from '../transfer-item-data.service';
 
 export class VoteComponent implements OnInit {
   @Input() blogItemData: BlogItem;
-  @ViewChild('zvjezdice') zvijezde;
+  @ViewChild('ratingBar') ratingBar;
 
   constructor(private dataTrans: TransferItemDataService) {
   }
 
   ngOnInit() {
-    console.log('####################');
-    const ratingStars = this.zvijezde.nativeElement.children;
+    const ratingStars = this.ratingBar.nativeElement.children;
 
     for (let i = 0; i < ratingStars.length; i++) {
       if (i < this.blogItemData.usrCurrVote) {
