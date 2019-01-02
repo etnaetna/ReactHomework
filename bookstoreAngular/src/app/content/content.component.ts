@@ -17,12 +17,10 @@ export class ContentComponent implements OnInit, DoCheck {
   blogData: BlogItem[] = null;
 
   constructor(private contentSrv: ContentProviderService) {
-    console.log(this.blogData);
   }
 
   ngOnInit() {
     this.getContent();
-    console.log(this.blogData);
   }
 
   ngDoCheck() {
@@ -30,7 +28,6 @@ export class ContentComponent implements OnInit, DoCheck {
   }
 
   getContent(): void {
-    console.log(this.blogData);
     this.contentSrv.getContent()
       .subscribe((data) => {
         this.blogData = data;

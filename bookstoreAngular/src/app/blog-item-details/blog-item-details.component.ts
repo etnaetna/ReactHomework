@@ -16,7 +16,6 @@ export class BlogItemDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.blogItemData = this.dataTransfer.getItem();
-    console.log(this.blogItemData);
   }
 
   addRemoveFav() {

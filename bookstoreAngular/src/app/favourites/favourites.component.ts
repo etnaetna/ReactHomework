@@ -10,7 +10,7 @@ import { BlogItem } from './../BlogItem';
 })
 export class FavouritesComponent implements OnInit, DoCheck {
 
-  favoriti: BlogItem[] = new Array;
+  favourites: BlogItem[] = new Array;
 
   constructor(private favServ: FavouritesServiceService) {
   }
@@ -19,20 +19,14 @@ export class FavouritesComponent implements OnInit, DoCheck {
     this.getFavs();
   }
 
-  sranje() {
-    console.log(this.favoriti);
-    this.getFavs();
-  }
-
   ngDoCheck() {
     this.getFavs();
   }
 
   getFavs(): void {
-    console.log(this.favoriti);
     this.favServ.getFavourites()
       .subscribe((favoriti) => {
-        this.favoriti = favoriti;
+        this.favourites = favoriti;
       }
       );
   }

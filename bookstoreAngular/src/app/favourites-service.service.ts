@@ -14,48 +14,29 @@ export class FavouritesServiceService {
 
   constructor() { }
 
-  addRemoveFromFavs(nekiObject: BlogItem) {
-    if (this.blogData.indexOf(nekiObject) === -1) {
-      this.addFavourites(nekiObject);
+  addRemoveFromFavs(currObj: BlogItem): void {
+    if (this.blogData.includes(currObj)) {
+      this.removeFavourites(currObj);
     } else {
-      this.removeFavourites(nekiObject);
+      this.addFavourites(currObj);
     }
   }
 
-  addFavourites(nekiOBject: BlogItem) {
-    if (this.blogData.length === 0) {
-      this.blogData[0] = nekiOBject;
-    } else {
-      this.blogData.push(nekiOBject);
-    }
-    console.log('poslje dodavanja');
-    console.log(this.blogData);
-
+  addFavourites(nekiOBject: BlogItem): void {
+    this.blogData.push(nekiOBject);
   }
 
   removeFavourites(nekiOBject: BlogItem) {
-    console.log('prije remove');
-    console.log(this.blogData);
     this.blogData = this.blogData.filter((entry) => {
-      console.log(entry);
-      console.log(nekiOBject);
-      console.log('########### oni su');
-      console.log(entry === nekiOBject);
-      if (entry === nekiOBject) {
-        console.log('isti su');
-      } else {
+      if (entry !== nekiOBject) {
         return entry;
       }
     });
-    console.log('poslje remove');
-    console.log(this.blogData);
 
     this.getFavourites();
   }
 
   getFavourites(): Observable<BlogItem[]> {
-    console.log('observale');
-    console.log(this.blogData);
     return of(this.blogData);
   }
 }

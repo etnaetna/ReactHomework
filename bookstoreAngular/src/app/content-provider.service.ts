@@ -17,7 +17,6 @@ export class ContentProviderService {
 
   constructor() { }
 
-  // transform to filter entry
   refreshContent(): void {
     this.filteredSiteData = this.siteData.filter((blogEntry: BlogItem) => {
       if (blogEntry.title.indexOf(this.filterString) !== -1) {
@@ -27,7 +26,6 @@ export class ContentProviderService {
   }
 
   getContent(): Observable<BlogItem[]> {
-    console.log(this.siteData);
     this.refreshContent();
 
     return of(this.filteredSiteData);

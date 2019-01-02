@@ -23,7 +23,6 @@ export class BlogItemComponent implements OnInit {
   }
 
   addToFavs() {
-    console.log(this.blogItemData);
     this.favServ.addFavourites(this.blogItemData);
   }
 

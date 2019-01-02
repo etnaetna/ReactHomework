@@ -8,9 +8,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 export class VoteComponent implements OnInit {
   @Input() rating: number;
-  noviGlas: Number = null;
-  petBrojeva: Number[] = [1, 2, 3, 4, 5];
-
+  usrCurrVote: Number = null;
 
   constructor() { }
 
@@ -18,11 +16,10 @@ export class VoteComponent implements OnInit {
   }
 
   refreshStars(e) {
-
     const ratingBar = e.target.children;
 
     for (let i = 0; i < ratingBar.length; i++) {
-      if (i < this.noviGlas) {
+      if (i < this.usrCurrVote) {
         ratingBar[i].classList.add('checked');
       } else {
         ratingBar[i].classList.remove('checked');
@@ -45,10 +42,7 @@ export class VoteComponent implements OnInit {
   }
 
   getVote(e): void {
-    console.log('get vote');
     const starId = e.target.getAttribute('data-star-id');
-    console.log(e.target.parentElement.children);
-    this.noviGlas = starId;
-    console.log(this.noviGlas);
+    this.usrCurrVote = starId;
   }
 }
