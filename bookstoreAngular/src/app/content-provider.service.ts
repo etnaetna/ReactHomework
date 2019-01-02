@@ -13,13 +13,13 @@ import { Observable, of } from 'rxjs';
 export class ContentProviderService {
   siteData: BlogItem[] = json;
   filteredSiteData: BlogItem[] = [];
-  filterString: string = '';
+  filterString: String = '';
 
   constructor() { }
 
   refreshContent(): void {
     this.filteredSiteData = this.siteData.filter((blogEntry: BlogItem) => {
-      if (blogEntry.title.indexOf(this.filterString) !== -1) {
+      if (blogEntry.title.indexOf(String(this.filterString)) !== -1) {
         return blogEntry;
       }
     });
