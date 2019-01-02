@@ -26,10 +26,6 @@ export class VoteComponent implements OnInit {
         ratingStars[i].classList.remove('checked');
       }
     }
-
-    this.calculateTotalRating();
-
-    this.dataTrans.setItem(this.blogItemData);
   }
 
   refreshStars(e) {
