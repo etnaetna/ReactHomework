@@ -6,8 +6,8 @@ export class BlogItem {
   content: String;
   totalRating: number;
   usrCurrVote: number;
-  usrVoted: boolean;
-  lastVote: number;
+  usrVoted: Boolean = false;
+  lastVote: Number = 0;
   voteCount: number;
   reviews: Review[];
 }

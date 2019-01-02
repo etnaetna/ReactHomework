@@ -17,10 +17,6 @@ export class VoteComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    console.log("#############");
-    console.log(this.blogItemData);
-
     const ratingStars = this.ratingBar.nativeElement.children;
 
     for (let i = 0; i < ratingStars.length; i++) {
@@ -34,7 +30,6 @@ export class VoteComponent implements OnInit {
     this.calculateTotalRating();
 
     this.dataTrans.setItem(this.blogItemData);
-    console.log(this.currTotalRating);
   }
 
   refreshStars(e) {
@@ -74,11 +69,11 @@ export class VoteComponent implements OnInit {
 
   calculateTotalRating(): void {
     if (this.blogItemData.usrCurrVote === 0) {
-      // this.currTotalRating = this.blogItemData.totalRating;
-      console.log("nemam sta prvi put uradit")
+      console.log();
     } else {
       if (this.blogItemData.usrVoted) {
-        this.blogItemData.totalRating = parseFloat((((this.blogItemData.totalRating * this.blogItemData.voteCount - this.blogItemData.lastVote)
+        this.blogItemData.totalRating = parseFloat((((this.blogItemData.totalRating * this.blogItemData.voteCount -
+          Number(this.blogItemData.lastVote))
           + parseInt(this.blogItemData.usrCurrVote.toString(), 10)) / this.blogItemData.voteCount).toFixed(2));
 
       } else {
@@ -90,11 +85,5 @@ export class VoteComponent implements OnInit {
         this.blogItemData.voteCount++;
       }
     }
-    console.log('current vote');
-    console.log(this.blogItemData.usrCurrVote);
-    console.log('last vote');
-    console.log(this.blogItemData.lastVote);
-    console.log('cijela osoba');
-    console.log(this.blogItemData.totalRating);
   }
 }
