@@ -1,21 +1,28 @@
-<div id="contenet">
+<div id="main">
   <a routerLink="/">BACK</a>
-  <div class="clanak">
-    <div class="article-title">{{this.blogItemData.title}}</div>
-    <div class="article-content">
+  <div class="article">
+    <div class="title">{{ this.blogItemData.title }}</div>
+    <div class="content">
       <div class="picPlaceholder"></div>
-      <div class="article-desc">
-        {{this.blogItemData.content}}
-      </div>
-      <div class="article-vote">
+      <div class="desc">{{ this.blogItemData.content }}</div>
+      <div class="vote">
         <app-vote [blogItemData]="this.blogItemData"></app-vote>
       </div>
-      <div class="article-add-to-favourites">
-        <img id="siteLogo" src="./../../assets/images/favorites-add-icon.png" alt="Black and white books icon" width="40px"
-          height="40px" (click)="this.addRemoveFav()" />
+      <div class="add-to-favourites">
+        <img
+          id="siteLogo"
+          src="./../../assets/images/favorites-add-icon.png"
+          alt="Black and white books icon"
+          width="40px"
+          height="40px"
+          (click)="this.addRemoveFav()"
+        />
       </div>
     </div>
   </div>
 
-  <app-review *ngFor="let rev of this.blogItemData.reviews" [revData]=rev></app-review>
+  <app-review
+    *ngFor="let rev of this.blogItemData.reviews"
+    [revData]="rev"
+  ></app-review>
 </div>

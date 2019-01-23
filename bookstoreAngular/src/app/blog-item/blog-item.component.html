@@ -1,20 +1,24 @@
-<div class="clanak-mini">
-  <div class="article-title">
+<div class="main">
+  <div class="title">
     <a routerLink="/details" (click)="this.setData()">
-      {{blogItemData.title}}
+      {{ blogItemData.title }}
     </a>
   </div>
-  <div class="article-content">
+  <div class="content">
     <div class="picPlaceholder"></div>
-    <div class="article-desc">
-      {{blogItemData.content}}
-    </div>
-    <div class="article-vote">
+    <div class="desc">{{ blogItemData.content }}</div>
+    <div class="vote">
       <app-vote [blogItemData]="this.blogItemData"></app-vote>
     </div>
-    <div class="article-add-to-favourites">
-      <img id="siteLogo" src={{blogItemData.imageSrc}} alt="Black and white books icon" width="40px" height="40px"
-        (click)="this.addRemoveFav()" />
+    <div class="add-to-favourites">
+      <img
+        id="siteLogo"
+        src="{{ blogItemData.imageSrc }}"
+        alt="Black and white books icon"
+        width="40px"
+        height="40px"
+        (click)="this.addRemoveFav()"
+      />
     </div>
   </div>
 </div>

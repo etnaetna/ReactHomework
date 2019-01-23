@@ -1,13 +1,4 @@
-.clanak {
-  justify-content: left;
-  border: 5px black solid;
-  display: grid;
-  grid-template-rows: 50px auto;
-  padding: 10px;
-  margin: 10px;
-}
-
-.clanak-mini {
+.main {
   height: 350px;
   justify-content: left;
   border: 5px black solid;
@@ -17,7 +8,7 @@
   margin: 10px;
 }
 
-.article-title {
+.title {
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
@@ -25,7 +16,7 @@
   font-size: 30px;
 }
 
-.article-content {
+.content {
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 2;
@@ -48,7 +39,7 @@
   padding: 10px;
 }
 
-.article-vote {
+.vote {
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 2;
@@ -59,7 +50,7 @@
   align-self: flex-end;
 }
 
-.article-add-to-favourites {
+.add-to-favourites {
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 3;
@@ -71,7 +62,7 @@
   align-self: flex-end;
 }
 
-.article-desc {
+.desc {
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 1;
@@ -83,7 +74,7 @@
   overflow: hidden;
 }
 
-.article-details {
+.details {
   border: 3px black solid;
   width: 96%;
   padding: 10px;
